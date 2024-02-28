@@ -131,6 +131,7 @@ def calculate_score(test_video_path,chunks_path,frames_per_chunk = 100):
     return scores
 
 # perform computation to check the distance / score if the two video having almost similar pose.
+# Thank Gemini for the formula
 def calculate_pose_similarity(preset_chunks,test_chunks):
     """
     Calculates pose similarity between two chunks of landmark data.
@@ -148,8 +149,8 @@ def calculate_pose_similarity(preset_chunks,test_chunks):
     euclidean_distances = []
     cosine_similarities = []
 
-    print(f'\npreset_chunks:\n{preset_chunks}')
-    print(f'\ntest_chunks:\n{test_chunks}')
+    # print(f'\npreset_chunks:\n{preset_chunks}')
+    # print(f'\ntest_chunks:\n{test_chunks}')
 
     for preset_frame, test_frame in zip(preset_chunks, test_chunks):
         # Convert each frame's landmark data to NumPy arrays for efficient calculations
