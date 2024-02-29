@@ -1,0 +1,22 @@
+[
+  {
+    "euclidean_distance": 0.3709773225171724,
+    "cosine_similarity": 0.9743346809341695
+  },
+  {
+    "euclidean_distance": 0.44653636445121575,
+    "cosine_similarity": 0.9444428867217421
+  },
+  {
+    "euclidean_distance": 0.47691100182122786,
+    "cosine_similarity": 0.9240189118185724
+  },
+  {
+    "euclidean_distance": 0.4911623173536451,
+    "cosine_similarity": 0.934420984738078
+  },
+  {
+    "euclidean_distance": 0.5702937959672465,
+    "cosine_similarity": 0.9239909979384291
+  }
+]

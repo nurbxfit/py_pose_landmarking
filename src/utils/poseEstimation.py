@@ -6,9 +6,10 @@ import json
 from tqdm import tqdm
 
 PRESET_NAME  = 'preset_01'
+TEST_NAME = 'preset_01'
 PRESET_VIDEO_PATH = os.path.join('presets',f'{PRESET_NAME}.mp4')
 CHUNKS_OUTPUT_PATH = os.path.join('presets',f'{PRESET_NAME}_chunks')
-TEST_VIDEO_PATH = PRESET_VIDEO_PATH
+TEST_VIDEO_PATH = os.path.join('presets',f'{TEST_NAME}.mp4')
 
 def start():
     init_chunks_once(PRESET_VIDEO_PATH,CHUNKS_OUTPUT_PATH)
@@ -24,11 +25,11 @@ def init_chunks_once( preset_video_path,chunks_output_path,frames_per_chunk = 10
     if not os.path.exists(chunks_output_path):
         # do the split part
         print("Spliting preset into chunks")
-        init_chunks(preset_video_path,preset_video_path,frames_per_chunk)
+        init_chunks(preset_video_path,chunks_output_path,frames_per_chunk)
 
         #else if existed, we check if the folder is empty or not, if empty we create chunks
     elif len(os.listdir(chunks_output_path)) == 0:
-            init_chunks(preset_video_path,preset_video_path,frames_per_chunk)
+            init_chunks(preset_video_path,chunks_output_path,frames_per_chunk)
     # else just skip
     else:
         print("Skip splitting as chunks folder already has content")
@@ -38,7 +39,7 @@ def init_chunks(preset_video_path, chunks_output_path, frames_per_chunk = 100):
     if not os.path.isfile(preset_video_path):
         raise FileNotFoundError('Preset video not found!')
     
-    if not os.path.isdir(chunks_output_path):
+    if not os.path.exists(chunks_output_path):
         os.makedirs(chunks_output_path,exist_ok=True)
     
     # read videos
